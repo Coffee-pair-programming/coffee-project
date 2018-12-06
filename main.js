@@ -18,21 +18,27 @@ function renderCoffees(coffees) {
     return html;
 }
 
+var tbody = document.querySelector('#coffees');
+var submitButton = document.querySelector('#submit');
+var roastSelection = document.querySelector('#roast-selection');
+var coffeeSelection = document.querySelector('#coffee-search');
+
 function updateCoffees(e) {
     e.preventDefault(); // don't submit the form, we just want to update the data
+    var inputValue = coffeeSelection.value;
     var selectedRoast = roastSelection.value;
     var filteredCoffees = [];
     coffees.forEach(function(coffee) {
-        if (coffee.roast === selectedRoast) {
+        if (coffee.roast === inputValue) {
             filteredCoffees.push(coffee);
+        } else {
+            console.log('no coffee');
         }
     });
     tbody.innerHTML = renderCoffees(filteredCoffees);
+
+
 }
-
-
-
-
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
 var coffees = [
@@ -54,13 +60,9 @@ var coffees = [
 
  coffees.reverse();
 
-var tbody = document.querySelector('#coffees');
-var submitButton = document.querySelector('#submit');
-var roastSelection = document.querySelector('#roast-selection');
-var coffeeSelection = document.getElementById("#coffee-search");
-
 tbody.innerHTML = renderCoffees(coffees);
 
+coffeeSelection.addEventListener('keyup', updateCoffees);''
 submitButton.addEventListener('click', updateCoffees);
 
 // //searching the array for the search input
@@ -72,21 +74,5 @@ submitButton.addEventListener('click', updateCoffees);
 //         console.log(coffees.name[inputIndex]);
 //     }
 // };
+//
 
-
-function search() {
-    var flag = false;
-    var coffeeName = document.getElementById("coffee-search").value;
-    var coffee = document.getElementsByTagName("h1");
-    for (var i = 0; i < coffees.length; i++) {
-        if (coffeeName === coffee[i].innerHTML) {
-            coffee[i].style.backgroundColor = "yellow";
-            flag = true;
-        } else {
-            coffee[i].style.backgroundColor = "white";
-        }
-    }
-    if(flag == false) {
-        alert("no such movie was found");
-    }
-}
