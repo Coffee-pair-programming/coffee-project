@@ -7,3 +7,9 @@ td, th {
     border: 1px solid black;
     padding: 5px 10px;
 }
+
+/*will change this with bootstrap later*/
+.coffee-form {
+    width: 50%;
+    float: right;
+}

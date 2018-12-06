@@ -30,6 +30,10 @@ function updateCoffees(e) {
     tbody.innerHTML = renderCoffees(filteredCoffees);
 }
 
+
+
+
+
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
 var coffees = [
     {id: 1, name: 'Light City', roast: 'light'},
@@ -48,12 +52,41 @@ var coffees = [
     {id: 14, name: 'French', roast: 'dark'},
 ];
 
-coffees.reverse();
+ coffees.reverse();
 
 var tbody = document.querySelector('#coffees');
 var submitButton = document.querySelector('#submit');
 var roastSelection = document.querySelector('#roast-selection');
+var coffeeSelection = document.getElementById("#coffee-search");
 
 tbody.innerHTML = renderCoffees(coffees);
 
 submitButton.addEventListener('click', updateCoffees);
+
+// //searching the array for the search input
+// function coffeeSearch() {
+//     var input = document.getElementById("coffee-search").value;
+//     var inputIndex = coffees.indexOf(input);
+//
+//     if (inputIndex !== -1) {
+//         console.log(coffees.name[inputIndex]);
+//     }
+// };
+
+
+function search() {
+    var flag = false;
+    var coffeeName = document.getElementById("coffee-search").value;
+    var coffee = document.getElementsByTagName("h1");
+    for (var i = 0; i < coffees.length; i++) {
+        if (coffeeName === coffee[i].innerHTML) {
+            coffee[i].style.backgroundColor = "yellow";
+            flag = true;
+        } else {
+            coffee[i].style.backgroundColor = "white";
+        }
+    }
+    if(flag == false) {
+        alert("no such movie was found");
+    }
+}
