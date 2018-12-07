@@ -67,18 +67,18 @@ var coffees = [
  coffees.reverse();
 
 
-//  var index;
-//  for (var i = 15; i <= coffees.length + 1 ; i++){
-//      index = i;
-// }
-//
-// var inputCoffee = {};
-// inputCoffee.id = index;
-// inputCoffee.name = index;
-// inputCoffee.roast = "add-roast.value";
 
-// coffees.push(inputCoffee);
+function addCoffee(e) {
+    e.preventDefault();
+    var inputCoffee = {};
+    inputCoffee.id = coffees.length;
+    inputCoffee.name = userInput.value;
+    inputCoffee.roast = addRoast.value;
+    coffees.push(inputCoffee);
+    tbody.innerHTML = renderCoffees(coffees);
 
+}
+var coffeeSubmit = document.querySelector("#submitAddNew");
 var userInput = document.querySelector('#add-coffee');
 var addRoast = document.querySelector('#add-roast');
 
@@ -87,6 +87,6 @@ tbody.innerHTML = renderCoffees(coffees);
 
 coffeeSelection.addEventListener('keyup', updateCoffees);
 submitButton.addEventListener('click', updateCoffees);
-
+coffeeSubmit.addEventListener('click', addCoffee);
 
 
