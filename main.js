@@ -25,23 +25,11 @@ var coffeeSelection = document.querySelector('#coffee-search');
 
 function updateCoffees(e) {
     e.preventDefault(); // don't submit the form, we just want to update the data
-    var selectedRoast = roastSelection.value;
-    var filteredCoffees = [];
-    coffees.forEach(function(coffee) {
-        if (coffee.roast === selectedRoast) {
-            filteredCoffees.push(coffee);
-        }
-    });
-    tbody.innerHTML = renderCoffees(filteredCoffees);
-}
-
-function updateCoffees(e) {
-    e.preventDefault(); // don't submit the form, we just want to update the data
     var inputValue = coffeeSelection.value;
     var selectedRoast = roastSelection.value;
     var filteredCoffees = [];
     coffees.forEach(function(coffee) {
-        if (coffee.name === inputValue) {
+        if (coffee.name === inputValue && coffee.roast === selectedRoast) {
             filteredCoffees.push(coffee);
         } else {
             console.log('no coffee');
@@ -74,7 +62,7 @@ var coffees = [
 
 tbody.innerHTML = renderCoffees(coffees);
 
-coffeeSelection.addEventListener('keyup', updateCoffees);''
+coffeeSelection.addEventListener('keyup', updateCoffees);
 submitButton.addEventListener('click', updateCoffees);
 
 // //searching the array for the search input
