@@ -17,40 +17,31 @@ function renderCoffees(coffees) {
     }
     return html;
 }
-
+var allRoasts = document.querySelector('#all');
 var tbody = document.querySelector('#coffees');
 var submitButton = document.querySelector('#submit');
 var roastSelection = document.querySelector('#roast-selection');
 var coffeeSelection = document.querySelector('#coffee-search');
 
 
-function updateCoffeesRoast(e) {
-    e.preventDefault(); // don't submit the form, we just want to update the data
-    var selectedRoast = roastSelection.value;
-    var filteredCoffees = [];
-    coffees.forEach(function(coffee) {
-        if (coffee.roast === selectedRoast) {
-            filteredCoffees.push(coffee);
-        }
-    });
-    tbody.innerHTML = renderCoffees(filteredCoffees);
-}
 
 function updateCoffees(e) {
     e.preventDefault(); // don't submit the form, we just want to update the data
     var inputValue = coffeeSelection.value;
     var selectedRoast = roastSelection.value;
     var filteredCoffees = [];
+    console.log(coffees.name);
     coffees.forEach(function(coffee) {
-        if (coffee.name === inputValue && coffee.roast === selectedRoast){
+
+
+        if (coffee.name.includes(inputValue) && coffee.roast === selectedRoast) {
+
             filteredCoffees.push(coffee);
         } else {
             console.log('no coffee');
         }
     });
     tbody.innerHTML = renderCoffees(filteredCoffees);
-
-
 }
 
 
@@ -76,43 +67,6 @@ var coffees = [
 ];
 
  coffees.reverse();
-
-
-
-// Adding coffees section: (not working)
-var addCoffee = document.querySelector("submitNewCoffee");
-var newCoffeeName = document.querySelector("#add-coffee");
-var newCoffeeRoast = document.querySelector("#add-roast");
-
-function addCoffees(e) {
-   e.preventDefault();
-   var newCoffee = {};
-   for (var i=0; i < coffees.length; i++) {
-    if (coffees[i].name === newCoffeeName.value && coffees[i].roast === newCoffeeRoast.value) {
-    return "no";
-    }
-  }  if (newCoffeeName.value === "") {
-    return "add coffee name";
-  } else {
-    newCoffee.name = newCoffeeName.value;
-    newCoffee.roast = newCoffeeRoast.value;
-    newCoffee.id = coffees.length +1;
-    coffees.push(newCoffee);
-    main.innerHTML = renderCoffee(coffees);
-    return selectionOrder.innerHTML = renderCoffees(coffees);
-  }
-  coffees.push(newCoffee);
-}
-
-
-
-
-newCoffeeName.addEventListener('click', addCoffees);
-
-
-
-
-
 
 
 tbody.innerHTML = renderCoffees(coffees);
