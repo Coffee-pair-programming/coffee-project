@@ -28,8 +28,10 @@ function updateCoffees(e) {
     var inputValue = coffeeSelection.value;
     var selectedRoast = roastSelection.value;
     var filteredCoffees = [];
+    console.log(coffee.name);
     coffees.forEach(function(coffee) {
-        if (coffee.name === inputValue && coffee.roast === selectedRoast) {
+
+        if (coffee.name.includes(inputValue) && coffee.roast === selectedRoast) {
             filteredCoffees.push(coffee);
         } else {
             console.log('no coffee');
