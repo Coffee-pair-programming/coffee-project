@@ -66,6 +66,15 @@ var coffees = [
 
  coffees.reverse();
 
+var inputCoffee = {};
+inputCoffee.coffee = "";
+inputCoffee.name = "userInput.value";
+inputCoffee.roast = "add-roast.value";
+
+coffees.push(inputCoffee);
+
+var userInput = document.querySelector('#add-coffee');
+var addRoast = document.querySelector('#add-roast');
 
 tbody.innerHTML = renderCoffees(coffees);
 
