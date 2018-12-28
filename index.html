@@ -3,28 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Lily+Script+One|Open+Sans" rel="stylesheet">
 </head>
 <body>
-    <h1>Coffee!</h1>
-<hr>
-    <div class="coffee-form">
+
+<!--NAVBAR-->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand coffee-font" href="#">House Coffee</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#order">Order</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+<!--END NAVBAR-->
+
+
+<div><img src="House-coffee-logo-3.png" class="coffee-shop"></div>
+<div class="parallax">
+
+
+<div id="parallax-curtain">
+
+<a name="order"></a>
+    <div  class="container">
+    <div class="coffee-form col-6">
+
         <div>
                 <form>
+                    <h2 class="coffee-font mt-5">Order Coffee</h2>
                     <h5>Roast</h5>
                     <label for="roast-selection"></label>
-                    <select id="roast-selection">
+                    <select id="roast-selection" class="custom-select">
                         <option value="light">light</option>
                         <option value="medium">medium</option>
                         <option value="dark">dark</option>
-                        <option value="all">all</option>
+                        <option value="all" selected>all</option>
                     </select>
                 </form>
                 <form>
-                <h5>Coffee Name</h5>
+                <h5 class="mt-3">Coffee Name</h5>
                 <label for="coffee-search"></label>
-                <input id="coffee-search" type="text">
-                <button id="submit" type="submit">Submit</button>
+                <input id="coffee-search" type="text" class="input-group-text">
+                <button id="submit" type="submit" class="btn btn-dark mt-3">Submit</button>
             </form>
         </div>
 
@@ -32,30 +67,39 @@
 
         <div>
             <form>
+                <h2 class="coffee-font">Request a Coffee</h2>
                 <h5>Roast</h5>
                 <label for="add-roast"></label>
-                <select id="add-roast">
+                <select id="add-roast" class="custom-select">
                     <option value="light">light</option>
                     <option value="medium">medium</option>
                     <option value="dark">dark</option>
                 </select>
 
-                <h5>Name</h5>
+                <h5 class="mt-3">Name</h5>
                 <label for="add-coffee"></label>
-                <input id="add-coffee">
-                <input id="submitAddNew" type="submit" />
+                <input id="add-coffee" class="input-group-text">
+                <button id="submitAddNew" type="submit" class="btn btn-dark mt-3">Submit</button>
             </form>
         </div>
 
     </div>
 
-
-
-
-<div class="coffee-form">
+<div class="row mt-5">
+<div class="coffee-form col-4 mt-5">
         <div id="coffees"></div>
 </div>
+</div>
+    </div>
+</div>
+</div>
 
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
     <script src="main.js"></script>
 </body>
 </html>
